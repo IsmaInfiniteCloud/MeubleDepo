@@ -1,0 +1,131 @@
+<div class="containers">
+  <h1>Ajout d'activite</h1>
+  <form style="width: 65%;" method="post" action="/new-activity">
+    <div class="input-group">
+  <label>
+    Nom:
+    <input type="text" name="name" required>
+
+
+  </label>
+    </div>
+  <div class="input-group">
+  <label>
+    Prix:
+    <input type="number" name="price" step="0.01" required>
+  </label>
+</div>
+<div class="input-group"></div>
+  <label>
+    Description:
+    <textarea name="description" required></textarea>
+  </label>
+</div>
+<div class="btnEnd">
+  <button type="submit">Ajouter l'activiter</button>
+</form>
+<a class="button btn-secondary" href="/">Retour au activities</a>
+</div>
+</div>
+
+
+
+<style>
+
+  
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h1 {
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 55px;
+    padding-bottom: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: tomato;
+  }
+  .input-group {
+    margin-bottom: 0.9em;
+  }
+  .btnEnd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+  .containers {
+    width: 80%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-group {
+    margin-bottom: 0.9em;
+    width: 100%;
+  }
+
+  label {
+    font-weight: bold;
+    color: black;
+    display: block;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.25em;
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+
+  input:focus, textarea:focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  }
+
+  .desc {
+    height: 5cm;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.25em;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 0.25em;
+    transition: background-color 0.15s ease-in-out;
+  }
+  label{
+    color: black;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     }
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+</style>

@@ -1,0 +1,134 @@
+<div id="success-message" style="display:none;background-color: aquamarine;font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Activite modifiee avec succee!</div>
+
+  <div class="containers">
+    <h1>Modifier une activite</h1>
+    <form style="width: 65%;" method="post" action="/activity/update/<%= activity._id %>" >
+      <div class="input-group">
+        <label>Nom:</label>
+        <input type="text" name="name" value="<%= activity.name %>" required>
+      </div>
+    
+      <div class="input-group">
+        <label>Prix:</label>
+        <input type="number" name="price" step="0.01" value="<%= activity.price %>" required>
+      </div>
+    
+      <div class="input-group">
+        <label>Description:</label>
+        <textarea class="desc" name="description" required><%= activity.description %></textarea>
+      </div>
+      <button type="submit">Modifier</button>
+    </form>
+    <br>
+    <a class="button btn-secondary" href="/">Retour au activities</a>
+  </div>
+   <script>
+    document.querySelector('form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const response = await fetch(event.target.action, {
+      method: 'POST',
+      body: formData,
+      credentials: 'same-origin',
+    });
+  
+    if (response.ok) {
+      showSuccessMessage();
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 3000);
+    } else {
+      alert('Erreur lors de la modification de lactivite');
+    }
+  });
+  
+  function showSuccessMessage() {
+    const successMessage = document.getElementById('success-message');
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 3000);
+  }
+  
+   </script>
+
+<style>
+  h1 {
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 55px;
+    padding-bottom: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: tomato;
+  }
+
+  .containers {
+    width: 100% !important;
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-group {
+    margin-bottom: 0.9em;
+  }
+ 
+
+  label {
+    font-weight: bold;
+    color: black;
+    display: block;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.25em;
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+
+  input:focus, textarea:focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  }
+
+  .desc {
+    height: 5cm;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.25em;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 0.25em;
+    transition: background-color 0.15s ease-in-out;
+  }
+
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+</style>
+
